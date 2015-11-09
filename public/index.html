@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Jorge Barata">
+    <link rel="icon" href="favicon.png">
+
+    <title>Don't Kill My Favourite</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar-collapse collapse inverse" id="navbar-header">
+        <div class="container-fluid">
+            <div class="about">
+                <h4>About</h4>
+                <p class="text-muted">Author: Jorge Barata</p>
+                <p class="text-muted"><a href="https://gplus.to/GDGDublin">2015 GDG Dublin DevFest</a> Hackathon</p>
+            </div>
+            <div class="social">
+                <h4>Contact</h4>
+                <ul class="list-unstyled">
+                    <li><a href="https://twitter.com/neuralhacker">Follow on Twitter</a></li>
+                    <li><a href="https://github.com/jorgebg">Follow on Github</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">
+                &#9776;
+            </button>
+            <a href="#" class="navbar-brand">Don't Kill My Favorite</a>
+        </div>
+    </div>
+
+    <section class="auth jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Don't Kill My Favourite</h1>
+            <img src="favicon.png" />
+            <!--<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>-->
+            <br/>
+            <p>
+                <a href="#" class="btn btn-danger login-btn">Login with Google</a>
+            </p>
+        </div>
+    </section>
+
+
+    <section class="container-fluid shows">
+        <br/>
+    </section>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="pull-right">
+                <a href="#">Back to top</a>
+            </p>
+            <a href="http://mrjakubmusic.deviantart.com/art/Game-of-Thrones-vectors-353473483">Logo credits to @Mrjakubmusic</a></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.0/holder.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script src="app.js"></script>
+    <script id="entry-template" type="text/x-handlebars-template">
+        {{#each shows}}
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object img-thumbnail" src="{{poster}}">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">{{name}}</h4>
+                {{overview}}
+                <div class="row">
+                {{#each cast }}
+                <div class="col-sm-4">
+                    <div class="card text-center">
+                        <br/>
+                        <img class="card-img-top img-thumbnail" src="{{profile}}">
+                        <div class="card-block">
+                            <strong class="card-title">{{character}}</strong>
+                            <p class="card-text">
+                                <span data-favkey="{{favkey}}">{{n_fav}}</span> Favs
+                            </p>
+                            <button class="btn btn-primary like-btn" data-favkey="{{favkey}}">Fav!</button>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+</body>
+
+</html>
